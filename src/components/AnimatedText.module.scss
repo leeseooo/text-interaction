@@ -1,0 +1,53 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(0.3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-0.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.container {
+  display: inline-block;
+  white-space: pre-wrap;
+
+  // 공통 단위 애니메이션 정의
+  .unit {
+    display: inline-block;
+    opacity: 0;
+    animation-fill-mode: both;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+  }
+
+  &.line .unit {
+    display: block;
+  }
+
+  // 프리셋: Fade
+  &.fade.character .unit,
+  &.fade.word .unit,
+  &.fade.line .unit {
+    animation-name: fadeIn;
+  }
+
+  // 프리셋: Slide
+  &.slide.character .unit,
+  &.slide.word .unit,
+  &.slide.line .unit {
+    animation-name: slideIn;
+  }
+}
